@@ -1,16 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using MyFramework.DataAnnotations;
+﻿using MyFramework.DataAnnotations;
+using System;
 
-namespace MyFramework.Validator
+namespace MyFramework
 {
-    public class RequiredValidator: Haha
+    public class RequiredValidator: Validator
     {
         public override Boolean CheckInvalid(Attribute attribute, object value)
         {
-            Console.WriteLine(value);
-            return string.IsNullOrEmpty((string)value);
+            //Console.WriteLine(value);
+            //Console.WriteLine(value.GetType());
+
+            return string.IsNullOrEmpty(value.ToString());
         }
 
         public override string GetMessage(Attribute attribute)
