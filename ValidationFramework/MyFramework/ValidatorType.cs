@@ -12,10 +12,6 @@
         // Phone number type
         PHONE_NUMBER,
         // Max length of string type
-        MAX_LENGTH,
-        // Min length of string type
-        MIN_LENGTH,
-        // Scope of string length (from .. to) type
         LENGTH,
         // Scope of number (from .. to) type
         RANGE,
