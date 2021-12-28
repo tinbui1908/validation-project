@@ -4,7 +4,7 @@ using System.Text;
 
 namespace MyFramework
 {
-    class ConstraintViolation
+    public class ConstraintViolation
     {
         private string _property;
 
