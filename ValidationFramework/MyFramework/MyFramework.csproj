@@ -6,7 +6,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="DataAnnotations\NewFolder\" />
+    <Compile Remove="DataAnnotations\NewFolder\**" />
+    <EmbeddedResource Remove="DataAnnotations\NewFolder\**" />
+    <None Remove="DataAnnotations\NewFolder\**" />
   </ItemGroup>
 
 </Project>
