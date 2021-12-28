@@ -8,25 +8,29 @@ namespace MyFramework
     /// </summary>
     public enum ValidatorType
     {
+
+
+        //// Max length of string type
+        //LENGTH,
+        //// Scope of number (from .. to) type
+        //RANGE,
+        //// Have no blank ('_') type
+        //NO_BLANK,
+        // Have blank(s) ('_') type
+        //BLANK,
+        // Is a number type
+        //IS_NUMBER
+
         // Not null type
-        NOT_NULL,
+        REQUIRED,
         // Regular expression type
         REGEX,
-        // Phone number type
-        PHONE_NUMBER,
-        // Max length of string type
-        LENGTH,
-        // Scope of number (from .. to) type
-        RANGE,
-        // Date (day, month and year) type
-        DATE_OF_BIRTH,
-        // Have no blank ('_') type
-        NO_BLANK,
-        // Have blank(s) ('_') type
-        BLANK,
-        // Is a number type
-        IS_NUMBER
-    }
+        MIN_LENGTH,
+        MAX_LENGTH,
+        MIN,
+        MAX,
+        EMAIL_ADDRESS,
+     }
 
     /// <summary>
     /// Lớp xử lí mapping giữa Validatory type và Annotation type
@@ -57,24 +61,19 @@ namespace MyFramework
         private static void InitDictionary()
         {
             types.Add("MyAnnotation",
-                        ValidatorType.NOT_NULL);
+                        ValidatorType.REQUIRED);
             types.Add("MyAnnotation",
                       ValidatorType.REGEX);
             types.Add("MyAnnotation",
-                      ValidatorType.PHONE_NUMBER);
+                      ValidatorType.MIN_LENGTH);
             types.Add("MyAnnotation",
-                      ValidatorType.LENGTH);
+                      ValidatorType.MAX_LENGTH);
             types.Add("MyAnnotation",
-                      ValidatorType.RANGE);
+                      ValidatorType.MIN);
             types.Add("MyAnnotation",
-                      ValidatorType.DATE_OF_BIRTH);
+                      ValidatorType.MAX);
             types.Add("MyAnnotation",
-                      ValidatorType.NO_BLANK);
-            types.Add("MyAnnotation",
-                      ValidatorType.BLANK);
-            types.Add("MyAnnotation",
-                      ValidatorType.IS_NUMBER);
-
+                      ValidatorType.EMAIL_ADDRESS);
         }
 
         /// <summary>

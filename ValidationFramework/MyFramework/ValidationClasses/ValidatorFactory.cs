@@ -27,15 +27,13 @@ namespace MyFramework
         /// </summary>
         private static void InitPrototypes()
         {
-            validators.Add(ValidatorType.NOT_NULL, new Validator());
-            validators.Add(ValidatorType.BLANK, new Validator());
-            validators.Add(ValidatorType.NO_BLANK, new Validator());
+            validators.Add(ValidatorType.REQUIRED, new Validator());
             validators.Add(ValidatorType.REGEX, new Validator());
-            validators.Add(ValidatorType.PHONE_NUMBER, new Validator());
-            validators.Add(ValidatorType.DATE_OF_BIRTH, new Validator());
-            validators.Add(ValidatorType.LENGTH, new Validator());
-            validators.Add(ValidatorType.RANGE, new Validator());
-            validators.Add(ValidatorType.IS_NUMBER, new Validator());
+            validators.Add(ValidatorType.EMAIL_ADDRESS, new Validator());
+            validators.Add(ValidatorType.MIN, new Validator());
+            validators.Add(ValidatorType.MAX, new Validator());
+            validators.Add(ValidatorType.MIN_LENGTH, new Validator());
+            validators.Add(ValidatorType.MAX_LENGTH, new Validator());
 
         }
 
