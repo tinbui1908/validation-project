@@ -1,4 +1,5 @@
 ﻿using MyFramework.DataAnnotations;
+using MyFramework.Validator;
 using System;
 using System.Reflection;
 
@@ -8,25 +9,26 @@ namespace MyFramework
     {
         public class User
         {  
-            [Regex("^[a,z]...{0,8}.", "hello")]
+            [Required]
             public int age { set; get; }
         }
         static void Main(string[] args)
         {
-            User a = new User()
-            {
-                age = 15
-            };
+            User a = new User();
 
             foreach (PropertyInfo thuoctinh in a.GetType().GetProperties())
             {
                 foreach (Attribute attr in thuoctinh.GetCustomAttributes(false))
                 {
-                    RegexAttribute att = attr as RegexAttribute;
-                    if (att != null)
-                    {
-                        Console.WriteLine($"{thuoctinh.Name} : {att.Message}, {att.Pattern}");
-                    }
+                    RequiredValidator validator = new RequiredValidator();
+                    Console.WriteLine(a);
+
+                    //if (validator.CheckInvalid(attr, thuoctinh.GetValue(a)))
+                    //{
+                    //    string msg = validator.GetMessage(attr);
+                    //    Console.WriteLine($"thong bao: {msg}");
+                    //}
+                  
                 }
             }
         }
