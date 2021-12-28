@@ -4,7 +4,12 @@ using System.Text;
 
 namespace MyFramework.DataAnnotations
 {
-	class RequiredAttribute
+	[AttributeUsage(AttributeTargets.Property)]
+	public class RequiredAttribute: Attribute
 	{
+		public RequiredAttribute() => Message = "This attribute is required";
+		public RequiredAttribute(string msg) => Message = msg;
+
+		public string Message { get; set; }
 	}
 }
