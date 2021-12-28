@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="MyFramework.ValidatorFactory">
+    <Position X="4.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>ValidatorFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="MyFramework.ValidatorType">
+    <Position X="1.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAAAAAAYAAAkAAAQACAAAAAAAAABAAAAAAAA=</HashCode>
+      <FileName>ValidatorType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
