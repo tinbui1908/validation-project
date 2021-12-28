@@ -27,13 +27,13 @@ namespace MyFramework
         /// </summary>
         private static void InitPrototypes()
         {
-            validators.Add(ValidatorType.REQUIRED, new Validator());
-            validators.Add(ValidatorType.REGEX, new Validator());
-            validators.Add(ValidatorType.EMAIL_ADDRESS, new Validator());
-            validators.Add(ValidatorType.MIN, new Validator());
-            validators.Add(ValidatorType.MAX, new Validator());
-            validators.Add(ValidatorType.MIN_LENGTH, new Validator());
-            validators.Add(ValidatorType.MAX_LENGTH, new Validator());
+            validators.Add(ValidatorType.REQUIRED, new RequiredValidator());
+            //validators.Add(ValidatorType.REGEX, new Validator());
+            //validators.Add(ValidatorType.EMAIL_ADDRESS, new Validator());
+            //validators.Add(ValidatorType.MIN, new Validator());
+            //validators.Add(ValidatorType.MAX, new Validator());
+            //validators.Add(ValidatorType.MIN_LENGTH, new Validator());
+            //validators.Add(ValidatorType.MAX_LENGTH, new Validator());
 
         }
 
@@ -42,17 +42,21 @@ namespace MyFramework
         /// </summary>
         /// <param name="validatorType">Kiểu của validator</param>
         /// <returns></returns>
-        public static Validator createValidator(ValidatorType validatorType)
+        public static Validator? createValidator(ValidatorType? validatorType)
         {
-            Validator validator = null;
-            // Xét xem đã có sẵn trong dictonary chưa
-            if (validators.ContainsKey(validatorType))
+            if (validatorType != null)
             {
-                validator = validators[validatorType];
-            }
-            else { /* Do nothing */ };
+                Validator validator = null;
+                // Xét xem đã có sẵn trong dictonary chưa
+                if (validators.ContainsKey((ValidatorType)validatorType))
+                {
+                    validator = validators[(ValidatorType)validatorType];
+                }
+                else { /* Do nothing */ };
 
-            return validator;
+                return validator;
+            }
+            return null;
         }
     }
 }

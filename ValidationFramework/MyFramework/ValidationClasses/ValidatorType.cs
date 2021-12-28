@@ -60,20 +60,20 @@ namespace MyFramework
         /// </summary>
         private static void InitDictionary()
         {
-            types.Add("MyAnnotation",
+            types.Add("MyFramework.DataAnnotations.RequiredAttribute",
                         ValidatorType.REQUIRED);
-            types.Add("MyAnnotation",
-                      ValidatorType.REGEX);
-            types.Add("MyAnnotation",
-                      ValidatorType.MIN_LENGTH);
-            types.Add("MyAnnotation",
-                      ValidatorType.MAX_LENGTH);
-            types.Add("MyAnnotation",
-                      ValidatorType.MIN);
-            types.Add("MyAnnotation",
-                      ValidatorType.MAX);
-            types.Add("MyAnnotation",
-                      ValidatorType.EMAIL_ADDRESS);
+            //types.Add("MyAnnotation",
+            //          ValidatorType.REGEX);
+            //types.Add("MyAnnotation",
+            //          ValidatorType.MIN_LENGTH);
+            //types.Add("MyAnnotation",
+            //          ValidatorType.MAX_LENGTH);
+            //types.Add("MyAnnotation",
+            //          ValidatorType.MIN);
+            //types.Add("MyAnnotation",
+            //          ValidatorType.MAX);
+            //types.Add("MyAnnotation",
+            //          ValidatorType.EMAIL_ADDRESS);
         }
 
         /// <summary>
@@ -81,7 +81,7 @@ namespace MyFramework
         /// </summary>
         /// <param name="_annotationName">Tên của annotation</param>
         /// <returns>Validator type hoặc null</returns>
-        static ValidatorType? GetType(string _annotationName)
+        public static ValidatorType? GetType(string _annotationName)
         {
             if (CheckInclude(_annotationName))
             {
