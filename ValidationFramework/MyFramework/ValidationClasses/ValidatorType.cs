@@ -62,8 +62,8 @@ namespace MyFramework
         {
             types.Add("MyFramework.DataAnnotations.RequiredAttribute",
                         ValidatorType.REQUIRED);
-            //types.Add("MyAnnotation",
-            //          ValidatorType.REGEX);
+            types.Add("MyFramework.DataAnnotations.RegExAttribute",
+                      ValidatorType.REGEX);
             //types.Add("MyAnnotation",
             //          ValidatorType.MIN_LENGTH);
             //types.Add("MyAnnotation",

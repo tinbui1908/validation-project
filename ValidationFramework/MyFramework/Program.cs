@@ -8,8 +8,12 @@ namespace MyFramework
     {
         public class User
         {
-            [Required]
-            public int age { set; get; }
+            //[Required]
+            //public string age { set; get; }
+
+            [RegEx(
+                @"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z")]
+            public string email { get; set; }
         }
         static void Main(string[] args)
         {
@@ -27,7 +31,10 @@ namespace MyFramework
             //}
 
 
-            User user = new User();
+            User user = new User()
+            {
+                email = "abc123@gmail"
+            };
 
             foreach (PropertyInfo thuoctinh in user.GetType().GetProperties())
             {
