@@ -57,8 +57,8 @@ namespace MyFramework
         {
             types.Add(typeof(RequiredAttribute).ToString(),
                         ValidatorType.REQUIRED);
-            //types.Add(typeof(RequiredAttribute).ToString(),
-            //          ValidatorType.REGEX);
+            types.Add(typeof(RegExAttribute).ToString(),
+                     ValidatorType.REGEX);
             types.Add(typeof(MinLengthAttribute).ToString(),
                      ValidatorType.MIN_LENGTH);
             types.Add(typeof(MaxLengthAttribute).ToString(),
