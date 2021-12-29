@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyFramework.DataAnnotations;
+using System;
 using System.Collections.Generic;
 
 namespace MyFramework
@@ -8,28 +9,22 @@ namespace MyFramework
     /// </summary>
     public enum ValidatorType
     {
-
-
-        //// Max length of string type
-        //LENGTH,
-        //// Scope of number (from .. to) type
-        //RANGE,
-        //// Have no blank ('_') type
-        //NO_BLANK,
-        // Have blank(s) ('_') type
-        //BLANK,
-        // Is a number type
-        //IS_NUMBER
-
         // Not null type
         REQUIRED,
         // Regular expression type
         REGEX,
+        // Minimum of string length type
         MIN_LENGTH,
+        // Maximum of string length type
         MAX_LENGTH,
+        // Minimum of number type
         MIN,
+        // Maximum of number type
         MAX,
+        // Email address type
         EMAIL_ADDRESS,
+        // No blank type
+        NO_BLANK
      }
 
     /// <summary>
@@ -60,20 +55,22 @@ namespace MyFramework
         /// </summary>
         private static void InitDictionary()
         {
-            types.Add("MyFramework.DataAnnotations.RequiredAttribute",
+            types.Add(typeof(RequiredAttribute).ToString(),
                         ValidatorType.REQUIRED);
-            types.Add("MyFramework.DataAnnotations.RegExAttribute",
-                      ValidatorType.REGEX);
-            //types.Add("MyAnnotation",
-            //          ValidatorType.MIN_LENGTH);
-            //types.Add("MyAnnotation",
-            //          ValidatorType.MAX_LENGTH);
-            //types.Add("MyAnnotation",
-            //          ValidatorType.MIN);
-            //types.Add("MyAnnotation",
-            //          ValidatorType.MAX);
-            //types.Add("MyAnnotation",
-            //          ValidatorType.EMAIL_ADDRESS);
+            types.Add(typeof(RegExAttribute).ToString(),
+                     ValidatorType.REGEX);
+            types.Add(typeof(MinLengthAttribute).ToString(),
+                     ValidatorType.MIN_LENGTH);
+            types.Add(typeof(MaxLengthAttribute).ToString(),
+                     ValidatorType.MAX_LENGTH);
+            types.Add(typeof(MinAttribute).ToString(),
+                     ValidatorType.MIN);
+            types.Add(typeof(MaxAttribute).ToString(),
+                     ValidatorType.MAX);
+            types.Add(typeof(EmailAddressAttribute).ToString(),
+                      	ValidatorType.EMAIL_ADDRESS);
+			types.Add(typeof(NoBlankAttribute).ToString(),
+					  	ValidatorType.NO_BLANK);
         }
 
         /// <summary>

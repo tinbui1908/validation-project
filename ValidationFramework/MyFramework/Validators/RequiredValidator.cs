@@ -5,11 +5,10 @@ namespace MyFramework
 {
     public class RequiredValidator: Validator
     {
-        public override Boolean CheckInvalid(Attribute attribute, object value)
+        public override bool CheckInvalid(Attribute attribute, object value)
         {
             //Console.WriteLine(value);
             //Console.WriteLine(value.GetType());
-
             return string.IsNullOrEmpty(value.ToString());
         }
 
