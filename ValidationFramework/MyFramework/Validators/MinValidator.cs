@@ -11,7 +11,7 @@ namespace MyFramework.Validators
         {
             MinAttribute min = attribute as MinAttribute;
 
-            return min.Min > Convert.ToInt32(value);
+            return min.Min < Convert.ToInt32(value);
         }
 
         public override string GetMessage(Attribute attribute)
