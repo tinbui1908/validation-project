@@ -18,18 +18,12 @@ namespace MyFramework
         {
             User user = new User() { age = "as", email= "tin" };
 
-            foreach (PropertyInfo thuoctinh in user.GetType().GetProperties())
-            {
-                foreach (Attribute attr in thuoctinh.GetCustomAttributes(false))
-                {
-                    var validation = Validation.GetInstance();
-                    var constraints = validation.DoValidate(user);
+            var validation = Validation.GetInstance();
+            var constraints = validation.DoValidate(user);
 
-                    foreach (var item in constraints)
-                    {
-                        Console.WriteLine(item.Message);
-                    }
-                }
+            foreach (var item in constraints)
+            {
+                Console.WriteLine(item.Message);
             }
         }
     }

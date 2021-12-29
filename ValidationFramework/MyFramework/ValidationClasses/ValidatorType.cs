@@ -59,13 +59,13 @@ namespace MyFramework
                         ValidatorType.REQUIRED);
             //types.Add(typeof(RequiredAttribute).ToString(),
             //          ValidatorType.REGEX);
-            types.Add(typeof(RequiredAttribute).ToString(),
+            types.Add(typeof(MinLengthAttribute).ToString(),
                      ValidatorType.MIN_LENGTH);
-            types.Add(typeof(RequiredAttribute).ToString(),
+            types.Add(typeof(MaxLengthAttribute).ToString(),
                      ValidatorType.MAX_LENGTH);
-            types.Add(typeof(RequiredAttribute).ToString(),
+            types.Add(typeof(MinAttribute).ToString(),
                      ValidatorType.MIN);
-            types.Add(typeof(RequiredAttribute).ToString(),
+            types.Add(typeof(MaxAttribute).ToString(),
                      ValidatorType.MAX);
             types.Add(typeof(EmailAddressAttribute).ToString(),
                       	ValidatorType.EMAIL_ADDRESS);
