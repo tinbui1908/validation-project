@@ -31,26 +31,25 @@ namespace MyFramework
 
             foreach (PropertyInfo thuoctinh in user.GetType().GetProperties())
             {
-                foreach (Attribute attr in thuoctinh.GetCustomAttributes(false))
-                {
-                    //RequiredValidator validator = new RequiredValidator();
-                    //Console.WriteLine(a);
+               foreach (Attribute attr in thuoctinh.GetCustomAttributes(false))
+               {
+                   //RequiredValidator validator = new RequiredValidator();
+                   //Console.WriteLine(a);
 
-                    //if (validator.CheckInvalid(attr, thuoctinh.GetValue(a)))
-                    //{
-                    //    string msg = validator.GetMessage(attr);
-                    //    Console.WriteLine($"thong bao: {msg}");
-                    //}
+                   //if (validator.CheckInvalid(attr, thuoctinh.GetValue(a)))
+                   //{
+                   //    string msg = validator.GetMessage(attr);
+                   //    Console.WriteLine($"thong bao: {msg}");
+                   //}
+            //    }
+            //}
 
-                    var validation = Validation.GetInstance();
-                    var constraints = validation.DoValidate(user);
+            var validation = Validation.GetInstance();
+            var constraints = validation.DoValidate(user);
 
-                    foreach(var item in constraints)
-                    {
-                        Console.WriteLine(item.Message);
-                    }
-
-                }
+            foreach (var item in constraints)
+            {
+                Console.WriteLine(item.Message);
             }
         }
     }
