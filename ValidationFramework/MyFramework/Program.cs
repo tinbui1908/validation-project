@@ -8,8 +8,8 @@ namespace MyFramework
     {
         public class User
         {
-            [Required]
-            public int age { set; get; }
+            [MinLength(3)]
+            public string age { set; get; }
         }
         static void Main(string[] args)
         {
@@ -27,7 +27,7 @@ namespace MyFramework
             //}
 
 
-            User user = new User();
+            User user = new User() { age = "as" };
 
             foreach (PropertyInfo thuoctinh in user.GetType().GetProperties())
             {

@@ -12,7 +12,7 @@ namespace MyFramework.Validators
         {
             MaxAttribute max = attribute as MaxAttribute;
 
-            return max.Max > Convert.ToInt32(value);
+            return max.Max < Convert.ToInt32(value);
         }
 
         public override string GetMessage(Attribute attribute)
