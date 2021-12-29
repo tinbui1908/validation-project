@@ -11,7 +11,7 @@ namespace MyFramework.Validators
         {
             MaxLengthAttribute maxLength = attribute as MaxLengthAttribute;
 
-            return maxLength.MaxLength > ((String)value).Length;
+            return maxLength.MaxLength > ((string)value).Length;
         }
 
         public override string GetMessage(Attribute attribute)

@@ -22,6 +22,8 @@ namespace MyFramework
         MAX,
         // Email type
         EMAIL_ADDRESS,
+        // No blank type
+        NO_BLANK
      }
 
     /// <summary>
@@ -66,6 +68,8 @@ namespace MyFramework
 					  ValidatorType.MAX);
             //types.Add("MyFramework.DataAnnotations.EmailAddressAttribute",
             //          ValidatorType.EMAIL_ADDRESS);
+            types.Add("MyFramework.DataAnnotations.NoBlankAttribute",
+                      ValidatorType.NO_BLANK);
         }
 
         /// <summary>

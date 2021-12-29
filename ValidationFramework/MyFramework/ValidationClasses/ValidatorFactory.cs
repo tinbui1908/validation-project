@@ -35,8 +35,8 @@ namespace MyFramework
 			validators.Add(ValidatorType.MAX, new MaxValidator());
 			validators.Add(ValidatorType.MIN_LENGTH, new MinLengthValidator());
 			validators.Add(ValidatorType.MAX_LENGTH, new MaxLengthValidator());
-
-		}
+            validators.Add(ValidatorType.NO_BLANK, new NoBlankValidator());
+        }
 
         /// <summary>
         /// Tạo validator

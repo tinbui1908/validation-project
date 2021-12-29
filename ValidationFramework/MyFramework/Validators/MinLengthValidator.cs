@@ -11,7 +11,7 @@ namespace MyFramework.Validators
         {
             MinLengthAttribute minLength = attribute as MinLengthAttribute;
 
-            return minLength.MinLength < ((String)value).Length;
+            return minLength.MinLength < ((string)value).Length;
         }
 
         public override string GetMessage(Attribute attribute)
