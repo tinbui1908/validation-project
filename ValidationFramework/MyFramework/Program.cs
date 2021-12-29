@@ -14,7 +14,6 @@ namespace MyFramework
         }
         static void Main(string[] args)
         {
-
             //  var subclassTypes = Assembly
             //       .GetAssembly(typeof(MyAnnotation))
             //       .GetTypes()
@@ -27,8 +26,7 @@ namespace MyFramework
             //    Console.WriteLine(subclass);
             //}
 
-
-            User user = new User() { email="m.hoang@hnf.com."};
+            User user = new User() {};
 
             //foreach (PropertyInfo thuoctinh in user.GetType().GetProperties())
             //{

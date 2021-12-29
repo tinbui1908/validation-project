@@ -66,17 +66,17 @@ namespace MyFramework
         /// </summary>
         private static void InitDictionary()
         {
-            types.Add("MyFramework.DataAnnotations.RequiredAttribute",
+            types.Add(typeof(RequiredAttribute).ToString(),
                         ValidatorType.REQUIRED);
-            //types.Add("MyAnnotation",
+            //types.Add(typeof(RequiredAttribute).ToString(),
             //          ValidatorType.REGEX);
-            //types.Add("MyAnnotation",
+            //types.Add(typeof(RequiredAttribute).ToString(),
             //          ValidatorType.MIN_LENGTH);
-            //types.Add("MyAnnotation",
+            //types.Add(typeof(RequiredAttribute).ToString(),
             //          ValidatorType.MAX_LENGTH);
-            //types.Add("MyAnnotation",
+            //types.Add(typeof(RequiredAttribute).ToString(),
             //          ValidatorType.MIN);
-            //types.Add("MyAnnotation",
+            //types.Add(typeof(RequiredAttribute).ToString(),
             //          ValidatorType.MAX);
             types.Add(typeof(EmailAddressAttribute).ToString(),
                       ValidatorType.EMAIL_ADDRESS);
