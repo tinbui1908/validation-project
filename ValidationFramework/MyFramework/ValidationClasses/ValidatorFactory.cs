@@ -30,7 +30,7 @@ namespace MyFramework
         {
             validators.Add(ValidatorType.REQUIRED, new RequiredValidator());
 			//validators.Add(ValidatorType.REGEX, new Validator());
-			//validators.Add(ValidatorType.EMAIL_ADDRESS, new Validator());
+			validators.Add(ValidatorType.EMAIL_ADDRESS, new EmailAddressValidator());
 			validators.Add(ValidatorType.MIN, new MinValidator());
 			validators.Add(ValidatorType.MAX, new MaxValidator());
 			validators.Add(ValidatorType.MIN_LENGTH, new MinLengthValidator());

@@ -4,15 +4,22 @@ using System.Text;
 
 namespace MyFramework
 {
+    /// <summary>
+    /// Lớp "ràng buộc" để chứa thông tin của field/property gồm: tên, giá trị, trạng thái, thông báo
+    /// </summary>
     public class ConstraintViolation
     {
-        private string _property;
+        #region private attributes
+        private string _property;   // Tên thuộc tính
 
-        private object _value;
+        private object _value;      // Giá trị của thuộc tính
 
-        private bool _status;
+        private bool _status;       // Trạng thái validate
 
-        private string _message;
+        private string _message;    // Thông báo lỗi validate
+        #endregion
+
+        #region public properties
 
         public string Property
         {
@@ -41,5 +48,6 @@ namespace MyFramework
 
             set => _message = value;
         }
+        #endregion
     }
 }
