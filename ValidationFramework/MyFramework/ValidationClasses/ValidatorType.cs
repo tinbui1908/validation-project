@@ -8,27 +8,19 @@ namespace MyFramework
     /// </summary>
     public enum ValidatorType
     {
-
-
-        //// Max length of string type
-        //LENGTH,
-        //// Scope of number (from .. to) type
-        //RANGE,
-        //// Have no blank ('_') type
-        //NO_BLANK,
-        // Have blank(s) ('_') type
-        //BLANK,
-        // Is a number type
-        //IS_NUMBER
-
         // Not null type
         REQUIRED,
         // Regular expression type
         REGEX,
+        // Min length of string
         MIN_LENGTH,
+        // Max length of string
         MAX_LENGTH,
+        // Min of value
         MIN,
+        // Max of value
         MAX,
+        // Email type
         EMAIL_ADDRESS,
      }
 
@@ -62,17 +54,17 @@ namespace MyFramework
         {
             types.Add("MyFramework.DataAnnotations.RequiredAttribute",
                         ValidatorType.REQUIRED);
-            //types.Add("MyAnnotation",
+            //types.Add("MyFramework.DataAnnotations.RegexAttribute",
             //          ValidatorType.REGEX);
-            //types.Add("MyAnnotation",
-            //          ValidatorType.MIN_LENGTH);
-            //types.Add("MyAnnotation",
-            //          ValidatorType.MAX_LENGTH);
-            //types.Add("MyAnnotation",
-            //          ValidatorType.MIN);
-            //types.Add("MyAnnotation",
-            //          ValidatorType.MAX);
-            //types.Add("MyAnnotation",
+            types.Add("MyFramework.DataAnnotations.MinLengthAttribute",
+					  ValidatorType.MIN_LENGTH);
+			types.Add("MyFramework.DataAnnotations.MaxLengthAttribute",
+					  ValidatorType.MAX_LENGTH);
+			types.Add("MyFramework.DataAnnotations.MinAttribute",
+					  ValidatorType.MIN);
+			types.Add("MyFramework.DataAnnotations.MaxAttribute",
+					  ValidatorType.MAX);
+            //types.Add("MyFramework.DataAnnotations.EmailAddressAttribute",
             //          ValidatorType.EMAIL_ADDRESS);
         }
 
