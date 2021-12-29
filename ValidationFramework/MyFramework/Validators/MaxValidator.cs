@@ -6,13 +6,20 @@ using System.Collections.Generic;
 
 namespace MyFramework.Validators
 {
-	public class MaxValidator : Validator
-	{
-        public override Boolean CheckInvalid(Attribute attribute, object value)
+    public class MaxValidator : Validator
+    {
+        public override bool CheckInvalid(Attribute attribute, object value)
         {
-            MaxAttribute max = attribute as MaxAttribute;
+            try
+            {
+                MaxAttribute max = attribute as MaxAttribute;
 
-            return max.Max < Convert.ToInt32(value);
+                return max.Max < Convert.ToInt32(value);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
         }
 
         public override string GetMessage(Attribute attribute)

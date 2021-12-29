@@ -4,8 +4,8 @@ using System.Text;
 
 namespace MyFramework.DataAnnotations
 {
-	[AttributeUsage(AttributeTargets.Property)]
-	public class MaxAttribute: Attribute
+    [AttributeUsage(AttributeTargets.Property)]
+    public class MaxAttribute: Attribute
 	{
         public MaxAttribute(double max)
         {

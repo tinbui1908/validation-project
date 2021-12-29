@@ -34,7 +34,15 @@ namespace MyFramework
             // Bước 2: Khởi tạo biến "ràng buộc"
             ConstraintViolation constraint = CreateConstraintViolation(property.Name, value);
 
-            // Bước 3: Thực hiện validate
+            // Bước 3: Kiểm tra giá trị có null không
+            if (value == null)
+            {
+                constraint.Message = $"Property {constraint.Property} is null";
+                constraint.Status = false;
+                return constraint;
+            }
+
+            // Bước 4: Thực hiện validate
             bool isInvalid = this.CheckInvalid(attribute, value);
 
             // Bước 4: Gán thông báo nếu có lỗi

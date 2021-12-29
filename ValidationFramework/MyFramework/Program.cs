@@ -11,7 +11,7 @@ namespace MyFramework
             [RegEx(
                 @"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z")]
             public string email1 { get; set; }
-            [MinLength(3)]
+            [Max(3)]
             public string age { set; get; }
             //[Required]
             [EmailAddress]

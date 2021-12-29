@@ -7,11 +7,18 @@ namespace MyFramework.Validators
 {
     public class MaxLengthValidator : Validator
     {
-        public override Boolean CheckInvalid(Attribute attribute, object value)
+        public override bool CheckInvalid(Attribute attribute, object value)
         {
-            MaxLengthAttribute maxLength = attribute as MaxLengthAttribute;
+            try
+            {
+                MaxLengthAttribute maxLength = attribute as MaxLengthAttribute;
 
-            return maxLength.MaxLength < ((string)value).Length;
+                return maxLength.MaxLength < ((string)value).Length;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
         }
 
         public override string GetMessage(Attribute attribute)

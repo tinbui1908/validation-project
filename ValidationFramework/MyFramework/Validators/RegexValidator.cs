@@ -5,12 +5,19 @@ using MyFramework.DataAnnotations;
 
 namespace MyFramework.Validators
 {
-    public class RegexValidator: Validator
+    public class RegexValidator : Validator
     {
-        public override Boolean CheckInvalid(Attribute attribute, object value)
+        public override bool CheckInvalid(Attribute attribute, object value)
         {
-            var attr = attribute as RegExAttribute;
-            return !attr.Pattern.IsMatch(value as string);
+            try
+            {
+                var attr = attribute as RegExAttribute;
+                return !attr.Pattern.IsMatch(value as string);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
         }
 
         public override string GetMessage(Attribute attribute)

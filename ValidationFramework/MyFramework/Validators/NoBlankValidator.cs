@@ -7,9 +7,16 @@ namespace MyFramework.Validators
 {
     public class NoBlankValidator : Validator
     {
-        public override Boolean CheckInvalid(Attribute attribute, object value)
+        public override bool CheckInvalid(Attribute attribute, object value)
         {
-            return ((string)value).Contains(" ");
+            try
+            {
+                return ((string)value).Contains(" ");
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
         }
 
         public override string GetMessage(Attribute attribute)

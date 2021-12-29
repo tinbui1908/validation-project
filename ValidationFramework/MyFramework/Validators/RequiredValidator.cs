@@ -3,13 +3,19 @@ using System;
 
 namespace MyFramework
 {
-    public class RequiredValidator: Validator
+    public class RequiredValidator : Validator
     {
         public override bool CheckInvalid(Attribute attribute, object value)
         {
-            //Console.WriteLine(value);
-            //Console.WriteLine(value.GetType());
-            return string.IsNullOrEmpty(value.ToString());
+            try
+            {
+                return string.IsNullOrEmpty(value.ToString());
+
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
         }
 
         public override string GetMessage(Attribute attribute)

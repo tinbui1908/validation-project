@@ -5,13 +5,20 @@ using System.Collections.Generic;
 
 namespace MyFramework.Validators
 {
-	public class MinLengthValidator: Validator
-	{
-        public override Boolean CheckInvalid(Attribute attribute, object value)
+    public class MinLengthValidator : Validator
+    {
+        public override bool CheckInvalid(Attribute attribute, object value)
         {
-            MinLengthAttribute minLength = attribute as MinLengthAttribute;
+            try
+            {
+                MinLengthAttribute minLength = attribute as MinLengthAttribute;
 
-            return minLength.MinLength > ((string)value).Length;
+                return minLength.MinLength > ((string)value).Length;
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
         }
 
         public override string GetMessage(Attribute attribute)
