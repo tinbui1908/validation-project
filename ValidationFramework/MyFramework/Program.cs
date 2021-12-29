@@ -8,40 +8,15 @@ namespace MyFramework
     {
         public class User
         {
+            [MinLength(3)]
+            public string age { set; get; }
             //[Required]
             [EmailAddress]
             public string email { set; get; }
         }
         static void Main(string[] args)
         {
-            //  var subclassTypes = Assembly
-            //       .GetAssembly(typeof(MyAnnotation))
-            //       .GetTypes()
-            //       .Where(t => t.IsSubclassOf(typeof(MyAnnotation)))
-            //       .Select(type => type.ToString())
-            //       .ToHashSet<string>();
-
-            //foreach (var subclass in subclassTypes)
-            //{
-            //    Console.WriteLine(subclass);
-            //}
-
-            User user = new User() {};
-
-            //foreach (PropertyInfo thuoctinh in user.GetType().GetProperties())
-            //{
-            //   foreach (Attribute attr in thuoctinh.GetCustomAttributes(false))
-            //   {
-                   //RequiredValidator validator = new RequiredValidator();
-                   //Console.WriteLine(a);
-
-                   //if (validator.CheckInvalid(attr, thuoctinh.GetValue(a)))
-                   //{
-                   //    string msg = validator.GetMessage(attr);
-                   //    Console.WriteLine($"thong bao: {msg}");
-                   //}
-            //    }
-            //}
+            User user = new User() { age = "as", email= "tin" };
 
             var validation = Validation.GetInstance();
             var constraints = validation.DoValidate(user);

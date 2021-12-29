@@ -9,7 +9,6 @@ namespace MyFramework
         {
             //Console.WriteLine(value);
             //Console.WriteLine(value.GetType());
-
             return string.IsNullOrEmpty(value.ToString());
         }
 

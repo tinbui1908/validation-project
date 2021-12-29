@@ -9,19 +9,6 @@ namespace MyFramework
     /// </summary>
     public enum ValidatorType
     {
-
-
-        //// Max length of string type
-        //LENGTH,
-        //// Scope of number (from .. to) type
-        //RANGE,
-        //// Have no blank ('_') type
-        //NO_BLANK,
-        // Have blank(s) ('_') type
-        //BLANK,
-        // Is a number type
-        //IS_NUMBER
-
         // Not null type
         REQUIRED,
         // Regular expression type
@@ -36,6 +23,8 @@ namespace MyFramework
         MAX,
         // Email address type
         EMAIL_ADDRESS,
+        // No blank type
+        NO_BLANK
      }
 
     /// <summary>
@@ -70,16 +59,18 @@ namespace MyFramework
                         ValidatorType.REQUIRED);
             //types.Add(typeof(RequiredAttribute).ToString(),
             //          ValidatorType.REGEX);
-            //types.Add(typeof(RequiredAttribute).ToString(),
-            //          ValidatorType.MIN_LENGTH);
-            //types.Add(typeof(RequiredAttribute).ToString(),
-            //          ValidatorType.MAX_LENGTH);
-            //types.Add(typeof(RequiredAttribute).ToString(),
-            //          ValidatorType.MIN);
-            //types.Add(typeof(RequiredAttribute).ToString(),
-            //          ValidatorType.MAX);
+            types.Add(typeof(MinLengthAttribute).ToString(),
+                     ValidatorType.MIN_LENGTH);
+            types.Add(typeof(MaxLengthAttribute).ToString(),
+                     ValidatorType.MAX_LENGTH);
+            types.Add(typeof(MinAttribute).ToString(),
+                     ValidatorType.MIN);
+            types.Add(typeof(MaxAttribute).ToString(),
+                     ValidatorType.MAX);
             types.Add(typeof(EmailAddressAttribute).ToString(),
-                      ValidatorType.EMAIL_ADDRESS);
+                      	ValidatorType.EMAIL_ADDRESS);
+			types.Add(typeof(NoBlankAttribute).ToString(),
+					  	ValidatorType.NO_BLANK);
         }
 
         /// <summary>
