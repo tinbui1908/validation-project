@@ -8,8 +8,9 @@ namespace MyFramework
     {
         public class User
         {
-            [Required]
-            public int age { set; get; }
+            //[Required]
+            [EmailAddress]
+            public string email { set; get; }
         }
         static void Main(string[] args)
         {
@@ -27,12 +28,12 @@ namespace MyFramework
             //}
 
 
-            User user = new User();
+            User user = new User() { email="m.hoang@hnf.com."};
 
-            foreach (PropertyInfo thuoctinh in user.GetType().GetProperties())
-            {
-               foreach (Attribute attr in thuoctinh.GetCustomAttributes(false))
-               {
+            //foreach (PropertyInfo thuoctinh in user.GetType().GetProperties())
+            //{
+            //   foreach (Attribute attr in thuoctinh.GetCustomAttributes(false))
+            //   {
                    //RequiredValidator validator = new RequiredValidator();
                    //Console.WriteLine(a);
 

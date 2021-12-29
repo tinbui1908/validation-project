@@ -5,13 +5,9 @@ using System.Text;
 namespace MyFramework.DataAnnotations
 {
     [AttributeUsage(AttributeTargets.Property)]
-    public class EmailAddressAttribute: Attribute
+    public class EmailAddressAttribute : Attribute
     {
-        public EmailAddressAttribute()
-        {
-            Message = "This attribute is not suitable with email address type";
-        }
-        public EmailAddressAttribute(string msg)
+        public EmailAddressAttribute(string msg = "This attribute is not suitable with email address type")
         {
             Message = msg;
         }

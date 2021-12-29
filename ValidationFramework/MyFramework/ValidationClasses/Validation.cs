@@ -66,7 +66,22 @@ namespace MyFramework
                             continue;
                         }
                         // Gọi hàm validate của validator tương ứng với attr
-                        ConstraintViolation constraint = validator.DoValidate(property, obj, attr);
+                        ConstraintViolation constraint;
+                        try
+                        {
+                            constraint = validator.DoValidate(obj, property, attr);
+                        }
+                        catch (Exception e)
+                        {
+                            constraint = new ConstraintViolation()
+                            {
+                                Message = e.Message,
+                                Property = property.Name,
+                                Value = property.GetValue(obj)
+                            };
+                            validateResults.Add(constraint);
+                            continue;
+                        }
                         // Nếu có lỗi, thêm vào kết quả validate
                         if (constraint.Status != true)
                         {
