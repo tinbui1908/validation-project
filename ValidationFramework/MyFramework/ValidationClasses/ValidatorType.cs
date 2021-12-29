@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyFramework.DataAnnotations;
+using System;
 using System.Collections.Generic;
 
 namespace MyFramework
@@ -25,10 +26,15 @@ namespace MyFramework
         REQUIRED,
         // Regular expression type
         REGEX,
+        // Minimum of string length type
         MIN_LENGTH,
+        // Maximum of string length type
         MAX_LENGTH,
+        // Minimum of number type
         MIN,
+        // Maximum of number type
         MAX,
+        // Email address type
         EMAIL_ADDRESS,
      }
 
@@ -60,20 +66,20 @@ namespace MyFramework
         /// </summary>
         private static void InitDictionary()
         {
-            types.Add("MyFramework.DataAnnotations.RequiredAttribute",
+            types.Add(typeof(RequiredAttribute).ToString(),
                         ValidatorType.REQUIRED);
-            //types.Add("MyAnnotation",
+            //types.Add(typeof(RequiredAttribute).ToString(),
             //          ValidatorType.REGEX);
-            //types.Add("MyAnnotation",
+            //types.Add(typeof(RequiredAttribute).ToString(),
             //          ValidatorType.MIN_LENGTH);
-            //types.Add("MyAnnotation",
+            //types.Add(typeof(RequiredAttribute).ToString(),
             //          ValidatorType.MAX_LENGTH);
-            //types.Add("MyAnnotation",
+            //types.Add(typeof(RequiredAttribute).ToString(),
             //          ValidatorType.MIN);
-            //types.Add("MyAnnotation",
+            //types.Add(typeof(RequiredAttribute).ToString(),
             //          ValidatorType.MAX);
-            //types.Add("MyAnnotation",
-            //          ValidatorType.EMAIL_ADDRESS);
+            types.Add(typeof(EmailAddressAttribute).ToString(),
+                      ValidatorType.EMAIL_ADDRESS);
         }
 
         /// <summary>
