@@ -59,7 +59,7 @@ namespace MyFramework
                     }
                     else
                     {
-                        Validator validator = ValidatorFactory.createValidator(valType);
+                        Validator validator = ValidatorFactory.CreateValidator(valType);
                         // Nếu khởi tạo không thành công - không hỗ trợ validate
                         if (validator == null)
                         {
