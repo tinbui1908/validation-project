@@ -10,7 +10,6 @@ namespace MyFramework
             try
             {
                 return string.IsNullOrEmpty(value.ToString());
-
             }
             catch (Exception e)
             {
