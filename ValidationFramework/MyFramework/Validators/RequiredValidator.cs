@@ -11,7 +11,6 @@ namespace MyFramework.Validators
         {
             if (value != null)
             {
-
                 try
                 {
                     return string.IsNullOrEmpty(value.ToString());
