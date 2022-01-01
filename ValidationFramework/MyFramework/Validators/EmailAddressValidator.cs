@@ -1,9 +1,10 @@
-﻿using MyFramework.DataAnnotations;
-using System;
+﻿using System;
+using MyFramework.DataAnnotations;
 using System.Linq;
 using System.Net.Mail;
+using MyFramework.ValidationClasses;
 
-namespace MyFramework
+namespace MyFramework.Validators
 {
     public class EmailAddressValidator : Validator
     {

@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Reflection;
 
-namespace MyFramework
+namespace MyFramework.ValidationClasses
 {
     public abstract class Validator
     {
@@ -35,9 +37,10 @@ namespace MyFramework
             ConstraintViolation constraint = CreateConstraintViolation(property.Name, value);
 
             // Bước 3: Kiểm tra giá trị có null không
-            if (value == null)
+            if (attribute.GetType() != typeof(RequiredAttribute) 
+                && value == null)
             {
-                constraint.Message = $"Property {constraint.Property} is null";
+                constraint.Message = $"{constraint.Property} is null";
                 constraint.Status = false;
                 return constraint;
             }
@@ -53,6 +56,11 @@ namespace MyFramework
             }
 
             return constraint;
+        }
+
+        internal static bool TryValidateObject(Program.User user, ValidationContext context, List<ValidationResult> results, bool v)
+        {
+            throw new NotImplementedException();
         }
 
         /// <summary>

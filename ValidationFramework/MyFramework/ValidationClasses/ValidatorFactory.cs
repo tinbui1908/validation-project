@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using MyFramework.Validators;
 
-namespace MyFramework
+namespace MyFramework.ValidationClasses
 {
     public class ValidatorFactory
     {
