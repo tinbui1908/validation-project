@@ -14,7 +14,7 @@ namespace MyFramework
 
         private object _value;      // Giá trị của thuộc tính
 
-        private bool _status;       // Trạng thái validate
+        private bool _status = true;       // Trạng thái validate
 
         private string _message;    // Thông báo lỗi validate
         #endregion
