@@ -31,6 +31,8 @@ namespace MyFramework
             [DataAnnotations.Required]
             [DataAnnotations.EmailAddress]
             public string Email { get; set; }
+
+
         }
         static void Main(string[] args)
         {
@@ -44,6 +46,16 @@ namespace MyFramework
             {
                 Console.WriteLine(c.Property + ": " + c.Message);
             }
+
+         
+            Func<Attribute, object, bool> newChecker = (a, b) => { return true; };
+            object a = 0;
+            validation.AddRule(
+                nameof(User.Age),
+                typeof(int).ToString(),
+                 (a, b) => { return true; },
+                "New custom message"
+            ); ;
         }
 
     }

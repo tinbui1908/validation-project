@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Reflection;
 
+using MyFramework.Validators;
+
 namespace MyFramework.ValidationClasses
 {
     /// <summary>
@@ -96,5 +98,12 @@ namespace MyFramework.ValidationClasses
             return validateResults;
         }
 
+        public void AddRule(string targetName, string targetType, Func<Attribute, object, bool> validateFunc, string message)
+        {
+            Console.WriteLine(targetName);
+            var newCustom = new CustomValidator();
+            newCustom.SetMessage(message);
+            newCustom.SetChecker(validateFunc);
+        }
     }
 }
