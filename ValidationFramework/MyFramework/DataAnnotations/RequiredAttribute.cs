@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace MyFramework.DataAnnotations
 {
-	[AttributeUsage(AttributeTargets.Property)]
+	[AttributeUsage(AttributeTargets.Property, AllowMultiple = false)]
 	public class RequiredAttribute: Attribute
 	{
 		public RequiredAttribute() => Message = "This attribute is required";

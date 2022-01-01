@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace MyFramework
+﻿namespace MyFramework.ValidationClasses
 {
     /// <summary>
     /// Lớp "ràng buộc" để chứa thông tin của field/property gồm: tên, giá trị, trạng thái, thông báo

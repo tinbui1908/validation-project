@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using MyFramework.Validators;
 
-namespace MyFramework
+namespace MyFramework.ValidationClasses
 {
     public class ValidatorFactory
     {
@@ -43,7 +43,7 @@ namespace MyFramework
         /// </summary>
         /// <param name="validatorType">Kiểu của validator</param>
         /// <returns></returns>
-        public static Validator? createValidator(ValidatorType? validatorType)
+        public static Validator? CreateValidator(ValidatorType? validatorType)
         {
             if (validatorType != null)
             {

@@ -1,7 +1,8 @@
-﻿using MyFramework.DataAnnotations;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System;
+
+using MyFramework.DataAnnotations;
+using MyFramework.ValidationClasses;
+
 
 namespace MyFramework.Validators
 {

@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Reflection;
 
-namespace MyFramework
+namespace MyFramework.ValidationClasses
 {
     public abstract class Validator
     {
@@ -53,6 +55,11 @@ namespace MyFramework
             }
 
             return constraint;
+        }
+
+        internal static bool TryValidateObject(Program.User user, ValidationContext context, List<ValidationResult> results, bool v)
+        {
+            throw new NotImplementedException();
         }
 
         /// <summary>

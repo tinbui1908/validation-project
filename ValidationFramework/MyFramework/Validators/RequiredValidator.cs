@@ -1,7 +1,9 @@
-﻿using MyFramework.DataAnnotations;
-using System;
+﻿using System;
 
-namespace MyFramework
+using MyFramework.DataAnnotations;
+using MyFramework.ValidationClasses;
+
+namespace MyFramework.Validators
 {
     public class RequiredValidator : Validator
     {
@@ -10,7 +12,6 @@ namespace MyFramework
             try
             {
                 return string.IsNullOrEmpty(value.ToString());
-
             }
             catch (Exception e)
             {
