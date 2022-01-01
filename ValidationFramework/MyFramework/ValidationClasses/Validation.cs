@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Reflection;
 
-namespace MyFramework
+namespace MyFramework.ValidationClasses
 {
     /// <summary>
     /// Lớp hỗ trợ validate một object 

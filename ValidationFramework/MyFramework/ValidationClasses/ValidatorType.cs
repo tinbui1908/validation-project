@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace MyFramework
+namespace MyFramework.ValidationClasses
 {
     /// <summary>
     /// Định nghĩa các kiểu Validator

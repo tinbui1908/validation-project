@@ -56,21 +56,21 @@
       <FileName>DataAnnotations\RequiredAttribute.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="MyFramework.RequiredValidator" Collapsed="true">
+  <Class Name="MyFramework.Validators.RequiredValidator" Collapsed="true">
     <Position X="0.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ACAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Validators\RequiredValidator.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="MyFramework.Validator" Collapsed="true">
+  <Class Name="MyFramework.ValidationClasses.Validator" Collapsed="true">
     <Position X="8.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ACAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAABAAAIA=</HashCode>
+      <HashCode>ACAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAEAABAAAIA=</HashCode>
       <FileName>ValidationClasses\Validator.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="MyFramework.EmailAddressValidator">
+  <Class Name="MyFramework.Validators.EmailAddressValidator">
     <Position X="2.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ACAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
@@ -126,7 +126,7 @@
       <FileName>DataAnnotations\NoBlankAttribute.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Enum Name="MyFramework.ValidatorType" Collapsed="true">
+  <Enum Name="MyFramework.ValidationClasses.ValidatorType" Collapsed="true">
     <Position X="11.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAABAAAAAAABAAAAEAEAAAAAAAAAAAAABAAQQAABA=</HashCode>

@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+
 using MyFramework.DataAnnotations;
+using MyFramework.ValidationClasses;
 
 namespace MyFramework.Validators
 {

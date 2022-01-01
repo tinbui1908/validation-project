@@ -1,6 +1,7 @@
 ﻿using System;
-using System.Reflection;
+
 using MyFramework.DataAnnotations;
+using MyFramework.ValidationClasses;
 
 namespace MyFramework
 {
@@ -8,26 +9,43 @@ namespace MyFramework
     {
         public class User
         {
+            [DataAnnotations.Required]
+            [DataAnnotations.MaxLength(255)]
+            public string FirstName { get; set; }
+
+            [DataAnnotations.MaxLength(255)]
+            public string LastName { get; set; }
+
+            [DataAnnotations.Required]
             [RegEx(
-                @"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z")]
-            public string email1 { get; set; }
-            [Max(3)]
-            public string age { set; get; }
-            //[Required]
-            [EmailAddress]
-            public string email2 { set; get; }
+    @"/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/")]
+            public string Password { get; set; }
+
+            [DataAnnotations.Required]
+            [DataAnnotations.MaxLength(20)]
+            public string Username { get; set; }
+
+            [Min(16, "Age must be greater than 16")]
+            public uint Age { get; set; }
+
+            [DataAnnotations.Required]
+            [DataAnnotations.EmailAddress]
+            public string Email { get; set; }
         }
         static void Main(string[] args)
         {
-            User user = new User() { age = "as", email1= "tin", email2="abc" };
+            User user = new User();
 
             var validation = Validation.GetInstance();
             var constraints = validation.DoValidate(user);
 
-            foreach (var item in constraints)
+            // Duyệt qua các attribute hiện có trong property
+            foreach (var c in constraints)
             {
-                Console.WriteLine(item.Message);
+                Console.WriteLine(c.Property + ": " + c.Message);
             }
         }
+
     }
 }
+
