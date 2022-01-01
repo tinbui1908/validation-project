@@ -37,9 +37,10 @@ namespace MyFramework.ValidationClasses
             ConstraintViolation constraint = CreateConstraintViolation(property.Name, value);
 
             // Bước 3: Kiểm tra giá trị có null không
-            if (value == null)
+            if (attribute.GetType() != typeof(RequiredAttribute) 
+                && value == null)
             {
-                constraint.Message = $"Property {constraint.Property} is null";
+                constraint.Message = $"{constraint.Property} is null";
                 constraint.Status = false;
                 return constraint;
             }
