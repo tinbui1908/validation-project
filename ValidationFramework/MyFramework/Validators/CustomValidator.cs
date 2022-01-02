@@ -1,21 +1,17 @@
-﻿using MyFramework.ValidationClasses;
-using System;
+﻿using System;
+
+using MyFramework.DataAnnotations;
+using MyFramework.ValidationClasses;
 
 namespace MyFramework.Validators
 {
     internal class CustomValidator : Validator
     {
         private Func<Attribute, object, bool> myCustomeRule;
-        private string message;
 
         public void SetChecker(Func<Attribute, object, bool> newChecker)
         {
             myCustomeRule = newChecker;
-        }
-
-        public void SetMessage(string newMsg)
-        {
-            this.message = newMsg;
         }
 
         public override bool CheckInvalid(Attribute attribute, object value)
@@ -25,7 +21,8 @@ namespace MyFramework.Validators
 
         public override string GetMessage(Attribute attribute)
         {
-            return this.message;
+            CustomAttribute attr = attribute as CustomAttribute;
+            return attr.Message;
         }
     }
 }

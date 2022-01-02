@@ -1,16 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Reflection;
-
+using MyFramework.DataAnnotations;
 using MyFramework.Validators;
 
 namespace MyFramework.ValidationClasses
 {
+
+    struct TargetValidate
+    {
+        public string TargetClass { get; set; }
+        public string TargetProperty { get; set; }
+    }
+
+    struct CustomValidateRule
+    {
+        public CustomAttribute Attribute { get; set; }
+        public CustomValidator Validator { get; set; }
+
+    }
+
     /// <summary>
     /// Lớp hỗ trợ validate một object 
     /// </summary>
     public class Validation
     {
+        private Dictionary<TargetValidate, CustomValidateRule> _cumstomRules = new Dictionary<TargetValidate, CustomValidateRule>();
+
         /// <summary>
         /// Hàm tạo private
         /// </summary>
@@ -44,10 +60,14 @@ namespace MyFramework.ValidationClasses
         public HashSet<ConstraintViolation> DoValidate(Object obj)
         {
             HashSet<ConstraintViolation> validateResults = new HashSet<ConstraintViolation>(); // Biến lưu kết quả lỗi của quá trình validate
+            Type type = obj.GetType();
+            string strType = type.Name;
 
             // Duyệt qua các property của object
-            foreach (PropertyInfo property in obj.GetType().GetProperties())
+            foreach (PropertyInfo property in type.GetProperties())
             {
+                string strPropertyName = property.Name;
+
                 // Duyệt qua các attribute hiện có trong property
                 foreach (Attribute attr in property.GetCustomAttributes(false))
                 {
@@ -92,18 +112,74 @@ namespace MyFramework.ValidationClasses
                     }
 
                 }
-            }
 
+                // Tạo một đối tượng targe để xét custom Validate
+                TargetValidate target = new TargetValidate
+                {
+                    TargetClass = strType,
+                    TargetProperty = strPropertyName
+                };
+                // Nếu có tồn tại trong danh sách các rules
+                if (_cumstomRules.ContainsKey(target))
+                {
+                    ConstraintViolation constraint;
+                    CustomValidateRule rule = _cumstomRules[target];
+
+                    try
+                    {
+                        var validator = rule.Validator;
+
+                        constraint = validator.DoValidate(obj, property, rule.Attribute);
+                    }
+                    catch (Exception e)
+                    {
+                        constraint = new ConstraintViolation()
+                        {
+                            Message = e.Message,
+                            Property = property.Name,
+                            Value = property.GetValue(obj)
+                        };
+                        validateResults.Add(constraint);
+                        continue;
+                    }
+                    // Nếu có lỗi, thêm vào kết quả validate
+                    if (constraint.Status != true)
+                    {
+                        validateResults.Add(constraint);
+                    }
+                }
+            }
 
             return validateResults;
         }
 
-        public void AddRule(string targetName, string targetType, Func<Attribute, object, bool> validateFunc, string message)
+
+        public bool AddNewRule(
+            string targetClassName,
+            string targetPropertyName,
+            Func<object, bool> validateFunc,
+            string errorMessage)
         {
-            Console.WriteLine(targetName);
-            var newCustom = new CustomValidator();
-            newCustom.SetMessage(message);
-            newCustom.SetChecker(validateFunc);
+            Console.WriteLine(targetClassName);
+            Console.WriteLine(targetPropertyName);
+
+            CustomValidator newCustomValidator = new CustomValidator();
+            CustomAttribute newCustomAttr = new CustomAttribute(errorMessage);
+            newCustomValidator.SetChecker(
+                (attr, obj) =>
+                {
+                    return validateFunc(obj);
+                }
+                );
+            //if(_cumstomRules.ContainsKey())
+            _cumstomRules.Add(
+                new TargetValidate { TargetClass = targetClassName, TargetProperty = targetPropertyName },
+                new CustomValidateRule { Attribute = newCustomAttr, Validator = newCustomValidator });
+
+            return true;
         }
+
+
     }
 }
+

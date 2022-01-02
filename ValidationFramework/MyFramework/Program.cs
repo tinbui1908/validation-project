@@ -39,6 +39,14 @@ namespace MyFramework
             User user = new User();
 
             var validation = Validation.GetInstance();
+
+            validation.AddNewRule(
+                typeof(User).Name,
+                nameof(User.Age),
+                 (o) => { return false; },
+                "New custom message"
+            ); ; ;
+
             var constraints = validation.DoValidate(user);
 
             // Duyệt qua các attribute hiện có trong property
@@ -48,14 +56,9 @@ namespace MyFramework
             }
 
          
-            Func<Attribute, object, bool> newChecker = (a, b) => { return true; };
-            object a = 0;
-            validation.AddRule(
-                nameof(User.Age),
-                typeof(int).ToString(),
-                 (a, b) => { return true; },
-                "New custom message"
-            ); ;
+         
+
+
         }
 
     }
