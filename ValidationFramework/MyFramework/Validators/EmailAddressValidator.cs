@@ -13,6 +13,10 @@ namespace MyFramework.Validators
             try
             {
                 var str = value.ToString();
+                if (string.IsNullOrEmpty(str))
+                {
+                    return true;
+                }
                 bool checkEmail = MailAddress.TryCreate(str, out var emailAddress);
                 // Nếu tạo được email
                 if (checkEmail)
