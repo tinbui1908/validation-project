@@ -26,7 +26,7 @@ namespace MyFramework
             public string Username { get; set; }
 
             [Min(16, "Age must be greater than 16")]
-            public uint Age { get; set; }
+            public string Age { get; set; }
 
             [DataAnnotations.Required]
             [DataAnnotations.EmailAddress]
@@ -36,7 +36,7 @@ namespace MyFramework
         }
         static void Main(string[] args)
         {
-            User user = new User();
+            User user = new User() { Age= "16"};
 
             var validation = Validation.GetInstance();
 
@@ -45,7 +45,7 @@ namespace MyFramework
                 typeof(User).Name,
                 nameof(User.Age),
                 
-                 (o) => { return (string)o == ""; },
+                 (o) => { return (string)o == "16"; },
                 "New custom message"
             );
 
