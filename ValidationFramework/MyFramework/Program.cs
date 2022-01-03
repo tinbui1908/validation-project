@@ -31,12 +31,24 @@ namespace MyFramework
             [DataAnnotations.Required]
             [DataAnnotations.EmailAddress]
             public string Email { get; set; }
+
+
         }
         static void Main(string[] args)
         {
             User user = new User();
 
             var validation = Validation.GetInstance();
+
+            validation.AddNewRule(
+                "",
+                typeof(User).Name,
+                nameof(User.Age),
+                
+                 (o) => { return (string)o == ""; },
+                "New custom message"
+            );
+
             var constraints = validation.DoValidate(user);
 
             // Duyệt qua các attribute hiện có trong property

@@ -15,10 +15,9 @@ namespace MyFramework.Validators
                 {
                     return string.IsNullOrEmpty(value.ToString());
                 }
-                catch (Exception e)
+                catch
                 {
                     return true;
-                    //throw new Exception(e.Message);
                 }
             }
             return true;

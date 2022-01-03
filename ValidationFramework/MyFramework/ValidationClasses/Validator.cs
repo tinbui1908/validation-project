@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Reflection;
+using MyFramework.Validators;
 
 namespace MyFramework.ValidationClasses
 {
@@ -58,11 +59,6 @@ namespace MyFramework.ValidationClasses
             return constraint;
         }
 
-        internal static bool TryValidateObject(Program.User user, ValidationContext context, List<ValidationResult> results, bool v)
-        {
-            throw new NotImplementedException();
-        }
-
         /// <summary>
         /// Hàm tạo một biến "ràng buộc" để chứa thông tin validate của một field/property
         /// </summary>
@@ -80,5 +76,6 @@ namespace MyFramework.ValidationClasses
 
             return newConstraint;
         }
+
     }
 }
