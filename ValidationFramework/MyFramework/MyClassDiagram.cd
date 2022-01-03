@@ -1,62 +1,55 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="MyFramework.ValidatorFactory" Collapsed="true">
-    <Position X="10" Y="0.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAEAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAI=</HashCode>
-      <FileName>ValidationClasses\ValidatorFactory.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="MyFramework.DataAnnotations.MaxAttribute" Collapsed="true">
-    <Position X="14" Y="3.5" Width="1.5" />
+  <Class Name="MyFramework.DataAnnotations.MaxAttribute">
+    <Position X="14" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
       <FileName>DataAnnotations\MaxAttribute.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="MyFramework.DataAnnotations.EmailAddressAttribute" Collapsed="true">
-    <Position X="2.75" Y="3.5" Width="1.5" />
+  <Class Name="MyFramework.DataAnnotations.EmailAddressAttribute">
+    <Position X="2.75" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
       <FileName>DataAnnotations\EmailAddressAttribute.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="MyFramework.DataAnnotations.MaxLengthAttribute" Collapsed="true">
-    <Position X="9.5" Y="3.5" Width="1.5" />
+  <Class Name="MyFramework.DataAnnotations.MaxLengthAttribute">
+    <Position X="9.5" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQIAAAAAA=</HashCode>
       <FileName>DataAnnotations\MaxLengthAttribute.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="MyFramework.DataAnnotations.MinAttribute" Collapsed="true">
-    <Position X="11.75" Y="3.5" Width="1.5" />
+  <Class Name="MyFramework.DataAnnotations.MinAttribute">
+    <Position X="11.75" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
       <FileName>DataAnnotations\MinAttribute.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="MyFramework.DataAnnotations.MinLengthAttribute" Collapsed="true">
-    <Position X="16.25" Y="3.5" Width="1.5" />
+  <Class Name="MyFramework.DataAnnotations.MinLengthAttribute">
+    <Position X="16.25" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
       <FileName>DataAnnotations\MinLengthAttribute.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="MyFramework.DataAnnotations.RegExAttribute" Collapsed="true">
-    <Position X="7.25" Y="3.5" Width="1.5" />
+  <Class Name="MyFramework.DataAnnotations.RegExAttribute">
+    <Position X="7.25" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAIAAAAAA=</HashCode>
       <FileName>DataAnnotations\RegexAttribute.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="MyFramework.DataAnnotations.RequiredAttribute" Collapsed="true">
-    <Position X="0.5" Y="3.5" Width="1.5" />
+  <Class Name="MyFramework.DataAnnotations.RequiredAttribute">
+    <Position X="0.5" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
       <FileName>DataAnnotations\RequiredAttribute.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="MyFramework.Validators.RequiredValidator" Collapsed="true">
+  <Class Name="MyFramework.Validators.RequiredValidator">
     <Position X="0.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ACAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
@@ -66,7 +59,7 @@
   <Class Name="MyFramework.ValidationClasses.Validator" Collapsed="true">
     <Position X="8.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>ACAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAEAABAAAIA=</HashCode>
+      <HashCode>ACAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAABAAAIA=</HashCode>
       <FileName>ValidationClasses\Validator.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -77,57 +70,92 @@
       <FileName>Validators\EmailAddressValidator.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="MyFramework.Validators.MaxLengthValidator" Collapsed="true">
+  <Class Name="MyFramework.Validators.MaxLengthValidator">
     <Position X="9.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ACAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Validators\MaxLengthValidator.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="MyFramework.Validators.MaxValidator" Collapsed="true">
+  <Class Name="MyFramework.Validators.MaxValidator">
     <Position X="14" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ACAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Validators\MaxValidator.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="MyFramework.Validators.MinLengthValidator" Collapsed="true">
+  <Class Name="MyFramework.Validators.MinLengthValidator">
     <Position X="16.25" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ACAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Validators\MinLengthValidator.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="MyFramework.Validators.MinValidator" Collapsed="true">
+  <Class Name="MyFramework.Validators.MinValidator">
     <Position X="11.75" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ACAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Validators\MinValidator.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="MyFramework.Validators.NoBlankValidator" Collapsed="true">
+  <Class Name="MyFramework.Validators.NoBlankValidator">
     <Position X="5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ACAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Validators\NoBlankValidator.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="MyFramework.Validators.RegexValidator" Collapsed="true">
+  <Class Name="MyFramework.Validators.RegexValidator">
     <Position X="7.25" Y="1.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ACAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Validators\RegexValidator.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="MyFramework.DataAnnotations.NoBlankAttribute" Collapsed="true">
-    <Position X="5" Y="3.5" Width="1.5" />
+  <Class Name="MyFramework.DataAnnotations.NoBlankAttribute">
+    <Position X="5" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
       <FileName>DataAnnotations\NoBlankAttribute.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Enum Name="MyFramework.ValidationClasses.ValidatorType" Collapsed="true">
-    <Position X="11.75" Y="0.5" Width="1.5" />
+  <Class Name="MyFramework.DataAnnotations.CustomAttribute">
+    <Position X="18.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAA=</HashCode>
+      <FileName>DataAnnotations\CustomAttribute.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MyFramework.Validators.CustomValidator">
+    <Position X="18.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAIAAQAAAAAAAAAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>Validators\CustomValidator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MyFramework.ValidationClasses.Validation">
+    <Position X="7.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AMAEAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAQBAAAAA=</HashCode>
+      <FileName>ValidationClasses\Validation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="MyFramework.ValidationClasses.TargetValidate">
+    <Position X="5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAACAA=</HashCode>
+      <FileName>ValidationClasses\Validation.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="MyFramework.ValidationClasses.CustomValidateRule">
+    <Position X="2.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAACAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>ValidationClasses\Validation.cs</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Enum Name="MyFramework.ValidationClasses.ValidatorType">
+    <Position X="0.5" Y="6.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAABAAAAAAABAAAAEAEAAAAAAAAAAAAABAAQQAABA=</HashCode>
       <FileName>ValidationClasses\ValidatorType.cs</FileName>
