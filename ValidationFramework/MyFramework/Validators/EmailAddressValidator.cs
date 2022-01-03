@@ -38,7 +38,6 @@ namespace MyFramework.Validators
                 throw new Exception(e.Message);
             }
 
-            return true;
         }
 
         public override string GetMessage(Attribute attribute)
