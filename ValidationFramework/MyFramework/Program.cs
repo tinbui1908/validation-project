@@ -43,7 +43,8 @@ namespace MyFramework
             validation.AddNewRule(
                 typeof(User).Name,
                 nameof(User.Age),
-                 (o) => { return false; },
+                
+                 (o) => { return (string)o == ""; },
                 "New custom message"
             );
 
@@ -54,11 +55,6 @@ namespace MyFramework
             {
                 Console.WriteLine(c.Property + ": " + c.Message);
             }
-
-         
-         
-
-
         }
 
     }

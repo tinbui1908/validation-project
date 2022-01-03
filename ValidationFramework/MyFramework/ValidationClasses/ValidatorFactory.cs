@@ -55,20 +55,16 @@ namespace MyFramework.ValidationClasses
         {
             if (validatorType != null)
             {
-                Validator validator = null;
+                Validator validator;
 
                 // Xét xem đã có sẵn trong dictonary chưa
                 if (validators.ContainsKey((ValidatorType)validatorType))
                 {
                     validator = validators[(ValidatorType)validatorType];
+                    return validator;
                 }
-                else
-                {
-                    /* Do nothing */
-                }
+                else { /* Do nothing */ }
 
-
-                return validator;
             }
             return null;
         }

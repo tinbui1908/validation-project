@@ -7,11 +7,12 @@ namespace MyFramework.DataAnnotations
 	internal class CustomAttribute : Attribute
 	{
 		/// <summary>
-		/// Hàm tạo với tham số mặc định
+		/// Hàm tạo
 		/// </summary>
-		public CustomAttribute(string msg){
-			Message = msg == "" ? "Custom rule" : msg; ;
+		internal CustomAttribute(string msg){
+			Message = msg == "" ? "Custom rule - failed" : msg; ;
 		} 
+
 		public string Message { get; set; }
 	}
 }

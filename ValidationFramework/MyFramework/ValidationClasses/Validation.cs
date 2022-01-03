@@ -6,13 +6,18 @@ using MyFramework.Validators;
 
 namespace MyFramework.ValidationClasses
 {
-
+    /// <summary>
+    /// Cấu trúc lưu mục tiêu validator, gồm tên class và tên property
+    /// </summary>
     struct TargetValidate
     {
         public string TargetClass { get; set; }
         public string TargetProperty { get; set; }
     }
 
+    /// <summary>
+    /// Cấu trục luật validate, bao gồm validator và attribute để lưu thông báo
+    /// </summary>
     struct CustomValidateRule
     {
         public CustomAttribute Attribute { get; set; }
@@ -25,7 +30,8 @@ namespace MyFramework.ValidationClasses
     /// </summary>
     public class Validation
     {
-        private Dictionary<TargetValidate, CustomValidateRule> _cumstomRules = new Dictionary<TargetValidate, CustomValidateRule>();
+        private Dictionary<TargetValidate, List<CustomValidateRule>> _cumstomRules
+            = new Dictionary<TargetValidate, List<CustomValidateRule>>();
 
         /// <summary>
         /// Hàm tạo private
@@ -120,32 +126,37 @@ namespace MyFramework.ValidationClasses
                     TargetProperty = strPropertyName
                 };
                 // Nếu có tồn tại trong danh sách các rules
-                if (_cumstomRules.ContainsKey(target))
+                if (CheckContainCustomRule(target))
                 {
-                    ConstraintViolation constraint;
-                    CustomValidateRule rule = _cumstomRules[target];
+                    List<CustomValidateRule> rules = _cumstomRules[target];
 
-                    try
+                    foreach (CustomValidateRule rule in rules)
                     {
-                        var validator = rule.Validator;
+                        ConstraintViolation constraint;
 
-                        constraint = validator.DoValidate(obj, property, rule.Attribute);
-                    }
-                    catch (Exception e)
-                    {
-                        constraint = new ConstraintViolation()
+                        try
                         {
-                            Message = e.Message,
-                            Property = property.Name,
-                            Value = property.GetValue(obj)
-                        };
-                        validateResults.Add(constraint);
-                        continue;
-                    }
-                    // Nếu có lỗi, thêm vào kết quả validate
-                    if (constraint.Status != true)
-                    {
-                        validateResults.Add(constraint);
+                            CustomValidator validator = rule.Validator;
+
+                            constraint = validator.DoValidate(obj, property, rule.Attribute);
+                        }
+                        catch (Exception e)
+                        {
+                            constraint = new ConstraintViolation()
+                            {
+                                Message = e.Message,
+                                Property = property.Name,
+                                Value = property.GetValue(obj)
+                            };
+                            validateResults.Add(constraint);
+                            continue;
+                        }
+
+                        // Nếu có lỗi, thêm vào kết quả validate
+                        if (constraint.Status != true)
+                        {
+                            validateResults.Add(constraint);
+                        }
                     }
                 }
             }
@@ -153,33 +164,62 @@ namespace MyFramework.ValidationClasses
             return validateResults;
         }
 
-
+        /// <summary>
+        /// Hàm thêm một luật validate cho một property của class
+        /// </summary>
+        /// <param name="targetClassName">Tên class</param>
+        /// <param name="targetPropertyName">Tên property</param>
+        /// <param name="validateFunc">Hàm logic kiểm tra</param>
+        /// <param name="errorMessage">Thông báo lỗi nếu kiểm tra không đạt</param>
+        /// <returns></returns>
         public bool AddNewRule(
             string targetClassName,
             string targetPropertyName,
             Func<object, bool> validateFunc,
             string errorMessage)
         {
-            Console.WriteLine(targetClassName);
-            Console.WriteLine(targetPropertyName);
-
+            // Tạo một CustomValidator mới
             CustomValidator newCustomValidator = new CustomValidator();
-            CustomAttribute newCustomAttr = new CustomAttribute(errorMessage);
+            // Thiết đặt logic kiểm tra cho CustomValidator
             newCustomValidator.SetChecker(
-                (attr, obj) =>
-                {
-                    return validateFunc(obj);
-                }
-                );
-            //if(_cumstomRules.ContainsKey())
-            _cumstomRules.Add(
-                new TargetValidate { TargetClass = targetClassName, TargetProperty = targetPropertyName },
-                new CustomValidateRule { Attribute = newCustomAttr, Validator = newCustomValidator });
+                (attr, obj) => { return !validateFunc(obj); });
+
+            // Mục tiêu kiểm tra
+            var target = new TargetValidate
+            {
+                TargetClass = targetClassName,
+                TargetProperty = targetPropertyName
+            };
+            // Tạo mới luật kiểm tra
+            var customRule = new CustomValidateRule
+            {
+                Attribute = new CustomAttribute(errorMessage),
+                Validator = newCustomValidator
+            };
+
+            // Kiểm tra tồn tại rule trong từ điển chưa
+            if (CheckContainCustomRule(target)) // Nếu tồn tại thêm rule mới vào list rule của target
+            {
+                _cumstomRules[target].Add(customRule);
+            }
+            else // Nếu chưa, khởi tạo list rule và thêm vào từ điển
+            {
+                List<CustomValidateRule> rules = new List<CustomValidateRule>() { customRule };
+                _cumstomRules.Add(target, rules);
+            }
 
             return true;
         }
 
-
+        /// <summary>
+        /// Hàm kiểm tra xem target đã được thiết lập rule chưa
+        /// </summary>
+        /// <param name="target">target cần xét</param>
+        /// <returns>Giá trị true/false tương ứng kết quả kiểm tra</returns>
+        private bool CheckContainCustomRule(TargetValidate target)
+        {
+            return _cumstomRules.ContainsKey(target);
+        }
     }
 }
 
