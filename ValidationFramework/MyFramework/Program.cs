@@ -41,6 +41,7 @@ namespace MyFramework
             var validation = Validation.GetInstance();
 
             validation.AddNewRule(
+                "",
                 typeof(User).Name,
                 nameof(User.Age),
                 

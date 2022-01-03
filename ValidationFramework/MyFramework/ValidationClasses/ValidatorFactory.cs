@@ -3,6 +3,9 @@ using MyFramework.Validators;
 
 namespace MyFramework.ValidationClasses
 {
+    /// <summary>
+    /// Lớp factory, quản lý việc tạo lập các Available validator
+    /// </summary>
     public class ValidatorFactory
     {
         /// <summary>

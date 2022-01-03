@@ -16,10 +16,11 @@ namespace MyFramework.ValidationClasses
     }
 
     /// <summary>
-    /// Cấu trục luật validate, bao gồm validator và attribute để lưu thông báo
+    /// Cấu trục luật validate, bao gồm tên, validator và attribute để lưu thông báo
     /// </summary>
     struct CustomValidateRule
     {
+        public string RuleName { get; set; }
         public CustomAttribute Attribute { get; set; }
         public CustomValidator Validator { get; set; }
 
@@ -74,6 +75,7 @@ namespace MyFramework.ValidationClasses
             {
                 string strPropertyName = property.Name;
 
+                #region Validate with Available validator(s)
                 // Duyệt qua các attribute hiện có trong property
                 foreach (Attribute attr in property.GetCustomAttributes(false))
                 {
@@ -118,7 +120,9 @@ namespace MyFramework.ValidationClasses
                     }
 
                 }
+                #endregion
 
+                #region Validate with Custom validator(s)
                 // Tạo một đối tượng targe để xét custom Validate
                 TargetValidate target = new TargetValidate
                 {
@@ -144,7 +148,7 @@ namespace MyFramework.ValidationClasses
                         {
                             constraint = new ConstraintViolation()
                             {
-                                Message = e.Message,
+                                Message = rule.RuleName + ": " + e.Message,
                                 Property = property.Name,
                                 Value = property.GetValue(obj)
                             };
@@ -159,6 +163,7 @@ namespace MyFramework.ValidationClasses
                         }
                     }
                 }
+                #endregion
             }
 
             return validateResults;
@@ -167,12 +172,14 @@ namespace MyFramework.ValidationClasses
         /// <summary>
         /// Hàm thêm một luật validate cho một property của class
         /// </summary>
+        /// <param name="name">Tên của luật validate (Mặc định Custom rule: {targetClassName}-{targetPropertyName})</param>
         /// <param name="targetClassName">Tên class</param>
         /// <param name="targetPropertyName">Tên property</param>
         /// <param name="validateFunc">Hàm logic kiểm tra</param>
         /// <param name="errorMessage">Thông báo lỗi nếu kiểm tra không đạt</param>
         /// <returns></returns>
         public bool AddNewRule(
+            string name,
             string targetClassName,
             string targetPropertyName,
             Func<object, bool> validateFunc,
@@ -190,13 +197,15 @@ namespace MyFramework.ValidationClasses
                 TargetClass = targetClassName,
                 TargetProperty = targetPropertyName
             };
+            // Đặt tên của luật
+            string ruleName = name == "" ? $"Custom rule {targetClassName}-{targetPropertyName}" : name;
             // Tạo mới luật kiểm tra
             var customRule = new CustomValidateRule
             {
+                RuleName = ruleName,
                 Attribute = new CustomAttribute(errorMessage),
                 Validator = newCustomValidator
             };
-
             // Kiểm tra tồn tại rule trong từ điển chưa
             if (CheckContainCustomRule(target)) // Nếu tồn tại thêm rule mới vào list rule của target
             {
