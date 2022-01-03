@@ -7,16 +7,16 @@ namespace MyFramework.Validators
 {
     internal class CustomValidator : Validator
     {
-        private Func<Attribute, object, bool> myCustomeRule;
+        private Func<Attribute, object, bool> myCustomRule;
 
         public void SetChecker(Func<Attribute, object, bool> newChecker)
         {
-            myCustomeRule = newChecker;
+            myCustomRule = newChecker;
         }
 
         public override bool CheckInvalid(Attribute attribute, object value)
         {
-            return this.myCustomeRule(attribute, value);
+            return this.myCustomRule(attribute, value);
         }
 
         public override string GetMessage(Attribute attribute)

@@ -45,7 +45,7 @@ namespace MyFramework
                 nameof(User.Age),
                  (o) => { return false; },
                 "New custom message"
-            ); ; ;
+            );
 
             var constraints = validation.DoValidate(user);
 
